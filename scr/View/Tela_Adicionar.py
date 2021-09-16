@@ -2,7 +2,7 @@ from tkinter import *
 from scr.Functions.Utils import Determinar_Local_de_Abertura as abrir
 
 
-def Tela_Adicionar():
+def Tela_Adicionar(caminho):
     janela = Tk()
     abrir.Centralizar(janela)
     janela.maxsize(600, 300)
