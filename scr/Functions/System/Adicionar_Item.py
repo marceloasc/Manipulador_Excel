@@ -1,10 +1,10 @@
 import pandas as pd
 
 
-def Adicionar_Item(caminho, itens):
+def Adicionar_Item(caminho, item):
 
     #df = pd.read_excel(caminho)
-
-    return
+    print(caminho)
+    print(item)
 
 

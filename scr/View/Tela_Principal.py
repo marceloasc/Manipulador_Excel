@@ -9,7 +9,6 @@ from scr.Functions.Utils import Determinar_Local_de_Abertura as abrir
 def PegarCaminhoAdd(add, entr):
     caminho = entr.replace("\\", "/")
     add['command'] = partial(ta.Tela_Adicionar, caminho)
-    print(caminho)
 
 
 def Tela_Principal():
@@ -20,7 +19,7 @@ def Tela_Principal():
     janela.title("Manipulador Excel")
 
     texto_informar_caminho = Label(janela,
-    text="Informe o caminho da planilha para iniciar as operações: ", fg='#808080')
+    text="Informe o caminho da planilha e aperte ENTER para iniciar as operações: ", fg='#808080')
     texto_informar_caminho.place(relx=0.10, rely=0.10)
     texto_informar_caminho.config(font=("Ubuntu", 14))
 
@@ -29,14 +28,12 @@ def Tela_Principal():
 
     adicionar = Button(janela,
                        text="Adicionar Item",
-                       command=0,
+                       command=entrada.bind("<Return>",
+                                            (lambda event: PegarCaminhoAdd(adicionar, entrada.get()))),
                        activebackground='#345',
                        activeforeground='white'
     )
     adicionar.place(relx=0.10, rely=0.60)
-
-    entrada.bind("<Return>",
-                 (lambda event: PegarCaminhoAdd(adicionar, entrada.get())))
 
     remover = Button(janela, text="Excluir Item",
                      command=te.Tela_Excluir,

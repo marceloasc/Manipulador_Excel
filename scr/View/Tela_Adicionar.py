@@ -1,5 +1,12 @@
 from tkinter import *
+from functools import partial
+
 from scr.Functions.Utils import Determinar_Local_de_Abertura as abrir
+from scr.Functions.System import Adicionar_Item as add
+
+
+def EnviarDadosAdd(enviar, caminho, entrada):
+    enviar['command'] = partial(add.Adicionar_Item, caminho, entrada)
 
 
 def Tela_Adicionar(caminho):
@@ -10,7 +17,7 @@ def Tela_Adicionar(caminho):
     janela.title("Adicionar - manipulador excel")
 
     texto_informar_itens = Label(janela,
-    text="Informe os itens que serão adicionados: ", fg='#808080')
+    text="Informe o que será adicionado: ", fg='#808080')
     texto_informar_itens.place(relx=0.10, rely=0.1)
     texto_informar_itens.config(font=("Ubuntu", 14))
 
@@ -18,10 +25,13 @@ def Tela_Adicionar(caminho):
     entrada.place(relx=0.1, rely=0.25, relwidth=0.8, relheight=0.1)
 
     adicionar = Button(janela, text="Adicionar",
-    activebackground='#345',
-    activeforeground='white')
+                       command=entrada.bind("<Return>",
+                                            (lambda event: EnviarDadosAdd(adicionar, caminho, entrada.get()))),
+                       activebackground='#345',
+                       activeforeground='white')
     adicionar.place(relx=0.10, rely=0.60)
 
     janela.mainloop()
+
 
 
