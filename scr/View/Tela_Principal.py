@@ -3,12 +3,18 @@ from functools import partial
 
 from scr.View import Tela_Adicionar as ta
 from scr.View import Tela_Excluir as te
+
 from scr.Functions.Utils import Determinar_Local_de_Abertura as abrir
 
 
 def PegarCaminhoAdd(add, entr):
     caminho = entr.replace("\\", "/")
     add['command'] = partial(ta.Tela_Adicionar, caminho)
+
+
+def PegarCaminhoRemo(remo, entr):
+    caminho = entr.replace("\\", "/")
+    remo['command'] = partial(te.Tela_Excluir, caminho)
 
 
 def Tela_Principal():
@@ -36,7 +42,8 @@ def Tela_Principal():
     adicionar.place(relx=0.10, rely=0.60)
 
     remover = Button(janela, text="Excluir Item",
-                     command=te.Tela_Excluir,
+                     command=entrada.bind("<Enter>",
+                                          (lambda event: PegarCaminhoRemo(remover, entrada.get()))),
                      activebackground='#345',
                      activeforeground='white'
     )
