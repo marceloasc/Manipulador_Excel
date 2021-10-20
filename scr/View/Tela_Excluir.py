@@ -10,7 +10,7 @@ def Tela_Excluir():
     janela.title("Excluir - manipulador excel")
 
     texto_informar_itens = Label(janela,
-    text="Informe o numero da linha que será excluida: ", fg='#808080')
+    text="Coluna e linha: ", fg='#808080')
     texto_informar_itens.place(relx=0.10, rely=0.1)
     texto_informar_itens.config(font=("Ubuntu", 14))
 

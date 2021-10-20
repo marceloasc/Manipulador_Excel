@@ -19,7 +19,7 @@ def Tela_Principal():
     janela.title("Manipulador Excel")
 
     texto_informar_caminho = Label(janela,
-    text="Informe o caminho da planilha e aperte ENTER para iniciar as operações: ", fg='#808080')
+    text="Informe o caminho junto ao nome do arquivo.xlsx e aperte ENTER: ", fg='#808080')
     texto_informar_caminho.place(relx=0.10, rely=0.10)
     texto_informar_caminho.config(font=("Ubuntu", 14))
 
