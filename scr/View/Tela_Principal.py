@@ -50,6 +50,3 @@ def Tela_Principal():
     remover.place(relx=0.28, rely=0.60)
 
     janela.mainloop()
-
-
-Tela_Principal()
