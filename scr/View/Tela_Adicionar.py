@@ -5,8 +5,8 @@ from scr.Functions.Utils import Determinar_Local_de_Abertura as abrir
 from scr.Functions.System import Adicionar_Item as add
 
 
-def EnviarDadosAdd(enviar, caminho, entrada):
-    enviar['command'] = partial(add.Adicionar_Item, caminho, entrada)
+def EnviarDadosAdd(enviar, caminho, entrada, janela):
+    enviar['command'] = partial(add.Adicionar_Item, caminho, entrada, janela)
 
 
 def Tela_Adicionar(caminho):
@@ -17,7 +17,7 @@ def Tela_Adicionar(caminho):
     janela.title("Adicionar - manipulador excel")
 
     texto_informar_item = Label(janela,
-    text="Item espaço coluna e linha: ", fg='#808080')
+    text="Item espaço coluna e linha e aperte ENTER: ", fg='#808080')
     texto_informar_item.place(relx=0.10, rely=0.1)
     texto_informar_item.config(font=("Ubuntu", 14))
 
@@ -26,7 +26,7 @@ def Tela_Adicionar(caminho):
 
     adicionar = Button(janela, text="Adicionar",
                        command=entrada_Item.bind("<Return>",
-                                            (lambda event: EnviarDadosAdd(adicionar, caminho, entrada_Item.get()))),
+                       (lambda event: EnviarDadosAdd(adicionar, caminho, entrada_Item.get(), janela))),
                        activebackground='#345',
                        activeforeground='white')
     adicionar.place(relx=0.10, rely=0.60)

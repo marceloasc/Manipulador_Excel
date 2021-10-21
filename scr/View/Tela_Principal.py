@@ -35,7 +35,7 @@ def Tela_Principal():
     adicionar = Button(janela,
                        text="Adicionar Item",
                        command=entrada.bind("<Return>",
-                                            (lambda event: PegarCaminhoAdd(adicionar, entrada.get()))),
+                       (lambda event: PegarCaminhoAdd(adicionar, entrada.get()))),
                        activebackground='#345',
                        activeforeground='white'
     )
@@ -43,7 +43,7 @@ def Tela_Principal():
 
     remover = Button(janela, text="Excluir Item",
                      command=entrada.bind("<Enter>",
-                                          (lambda event: PegarCaminhoRemo(remover, entrada.get()))),
+                     (lambda event: PegarCaminhoRemo(remover, entrada.get()))),
                      activebackground='#345',
                      activeforeground='white'
     )
