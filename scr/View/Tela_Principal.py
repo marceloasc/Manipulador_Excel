@@ -39,7 +39,7 @@ def Tela_Principal():
 
     Selecionar_Planilha = Button(janela,
                                text="Selecionar planilha",
-                               command=lambda: caminho.append(askopenfilename(filetypes=([("Planilhas", "*.xlsx; *.xlsm *.xltx; *.xltm")]), title='Selecionar planilha')),
+                               command=lambda: caminho.append(askopenfilename(filetypes=([("Arquivo Excel", "*.xlsx; *.xlsm *.xltx; *.xltm")]), title='Selecionar planilha')),
                                activebackground='#345',
                                activeforeground='white'
     )
@@ -47,14 +47,14 @@ def Tela_Principal():
 
     adicionar = Button(janela,
                        text="Adicionar Item",
-                       command=lambda: PegarCaminhoAdd(adicionar, caminho[0]),
+                       command=lambda: PegarCaminhoAdd(adicionar, caminho[-1]),
                        activebackground='#345',
                        activeforeground='white'
     )
     adicionar.place(relx=0.10, rely=0.65)
 
     remover = Button(janela, text="Excluir Item",
-                     command=lambda: PegarCaminhoRemo(remover, caminho[0]),
+                     command=lambda: PegarCaminhoRemo(remover, caminho[-1]),
                      activebackground='#345',
                      activeforeground='white'
     )
@@ -62,7 +62,5 @@ def Tela_Principal():
 
     janela.mainloop()
 
-
-Tela_Principal()
 
 
