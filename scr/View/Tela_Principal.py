@@ -63,6 +63,4 @@ def Tela_Principal():
     janela.mainloop()
 
 
-Tela_Principal()
-
 
